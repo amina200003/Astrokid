@@ -37,14 +37,34 @@ def is_astronomy_question(question):
     question_lower = question.lower()
     return any(keyword in question_lower for keyword in ASTRONOMY_KEYWORDS)
 
+def is_english_text(text):
+    """Heuristically determine if text is English by ASCII letter ratio."""
+    if not text:
+        return False
+    total_letters = sum(1 for c in text if c.isalpha())
+    ascii_letters = sum(1 for c in text if ('a' <= c.lower() <= 'z'))
+    if total_letters == 0:
+        return False
+    return (ascii_letters / total_letters) >= 0.85
+
 def web_search(query, max_results=3):
     """Perform web search for astronomy-related information"""
     try:
         with DDGS() as ddgs:
             # Add "astronomy" to the search query to ensure relevant results
             search_query = f"{query} astronomy space science"
-            results = ddgs.text(search_query, max_results=max_results)
-            return [r["body"] for r in results]
+            # Bias results to English using region, then filter snippets heuristically
+            results = ddgs.text(search_query, max_results=max_results * 2, region="us-en")
+            english_snippets = []
+            for r in results:
+                snippet = (r.get("body") or "").strip()
+                title = (r.get("title") or "").strip()
+                combined = f"{title}. {snippet}".strip()
+                if is_english_text(combined):
+                    english_snippets.append(snippet)
+                if len(english_snippets) >= max_results:
+                    break
+            return english_snippets
     except Exception as e:
         st.warning(f"Web search failed: {str(e)}")
         return []
@@ -256,9 +276,10 @@ def main():
     st.markdown("""
     <div style="text-align: center; color: #666; font-size: 0.9rem;">
         Made with ❤️ by AstroKid | Powered by Gemini AI | 
-        <a href="https://github.com/yourusername/astrokid" target="_blank">GitHub</a>
+        <a href="https://github.com/amina200003/Astrokid" target="_blank">GitHub</a>
     </div>
     """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
+
