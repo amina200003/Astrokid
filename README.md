@@ -11,6 +11,12 @@ AstroKid is an AI-powered astronomy teacher that explains complex space concepts
 - **Follow-up Questions**: Suggests related questions to encourage deeper learning
 - **Source Attribution**: Shows web sources for transparency
 
+## Docker
+**To facilitate dependency installation, the project is available on Docker ate the following adress:**
+ ```bash
+https://hub.docker.com/layers/amii765/astrokid/latest/images/sha256:309ff2ac8bec6dbc6e76f9242ff5f9a5b9a5470c6ecf5ab99495dbc3434ad035?uuid=B74B4A4B-7420-4176-B10A-27960C2020BE
+   ```
+
 ## 🛠️ Installation
 
 1. **Clone the repository**:
