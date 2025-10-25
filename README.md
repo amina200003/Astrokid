@@ -2,7 +2,7 @@
 
 AstroKid is an AI-powered astronomy teacher that explains complex space concepts to children in simple, engaging terms. Built with Streamlit and powered by Google's Gemini AI, it provides interactive, educational responses about astronomy and space exploration.
 
-## ✨ Features
+##  Features
 
 - **Child-Friendly Explanations**: Complex astronomy concepts explained in simple terms for children aged 6-12
 - **Web-Enhanced Knowledge**: Uses web search to provide up-to-date information
@@ -41,7 +41,7 @@ https://hub.docker.com/layers/amii765/astrokid/latest/images/sha256:309ff2ac8bec
    2. Create a new API key
    3. Copy and paste it into the `api.env` file
 
-## 🚀 Running the Application
+##  Running the Application
 
 1. **Start the Streamlit app**:
    ```bash
@@ -52,7 +52,7 @@ https://hub.docker.com/layers/amii765/astrokid/latest/images/sha256:309ff2ac8bec
 
 3. **Start asking questions** about space! 🌌
 
-## 🎯 Example Questions
+##  Example Questions
 
 Try asking AstroKid about:
 - "What is a black hole?"
@@ -81,7 +81,7 @@ Astrokid/
 4. **AI Processing**: Gemini AI processes the question with web context to generate child-friendly responses
 5. **Response Display**: The answer is displayed with follow-up suggestions and source attribution
 
-## 🎨 Customization
+##  Customization
 
 You can customize AstroKid by:
 
